@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 public class Holes
 	{
 		public static void introduction()
