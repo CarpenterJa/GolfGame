@@ -4,9 +4,9 @@ public class Holes
 	{
 		static Scanner input = new Scanner(System.in);
 		static int club;
-		public static int dError;
-		public static int plusOrMinus;
-		public static int distance;
+		static int dError;
+		static int plusOrMinus;
+		static int distance;
 		public static void clubSelection()
 			{
 				System.out.println("Which club would you like to use?");
@@ -15,11 +15,16 @@ public class Holes
 			}
 		public static void distanceError()
 		{
-			plusOrMinus=(int)Math.random() * 2;
-			dError=(int)Math.random() * 11;
+			
+			plusOrMinus=(int)(Math.random() * 2);
+			dError=(int)(Math.random() * 11);
 		}
 		
 		public static void accuaryError()
+		{
+			
+		}
+		public static void checkBallStatus()
 		{
 			
 		}
@@ -40,9 +45,11 @@ public class Holes
 				Scorecard.printCard();
 				System.out.println("Welcome to the First Hole.");
 				while(inHole==false)
+					{
 			    counter++;
 				clubSelection();
 				distanceError();
+				System.out.println(plusOrMinus);
 				if(plusOrMinus==0)
 					{
 				    distance=Club.club.get(club).getDistance() + dError; 
@@ -50,6 +57,9 @@ public class Holes
 				else
 					{
 					distance=Club.club.get(club).getDistance() - dError; 
+					}
+	 
+				System.out.println("You hit the ball " + distance + " yards.");
 					}
 			}
 
