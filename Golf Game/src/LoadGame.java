@@ -47,7 +47,7 @@ public class LoadGame
 						printClubs();
 						int favClub = user.nextInt() - 1;
 						Club.club.get(favClub).setFavorite(true);
-						Club.club.get(favClub).setAccuracy(100.0);
+						Club.club.get(favClub).setAccuracy(100);
 						System.out.println("The old trustie " + Club.club.get(favClub).getName() + ".");
 						System.out.println();
 
