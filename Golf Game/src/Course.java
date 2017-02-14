@@ -63,7 +63,7 @@ public class Course
 			{
 				course.add(new Course("Hole 1", 430, 100, 0, 4));
 				course.add(new Course("Hole 2", 390, 80, 0, 4));
-				course.add(new Course("Hole 3", 115, 30, 0, 3));
+				course.add(new Course("Hole 3", 115, 40, 0, 3));
 				course.add(new Course("Hole 4", 600, 120, 0, 5));
 				course.add(new Course("Hole 5", 422, 95, 0, 4));
 				course.add(new Course("Hole 6", 440, 110, 0, 4));

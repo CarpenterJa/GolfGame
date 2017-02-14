@@ -9,6 +9,7 @@ public class Holes {
 	static int xDistance;
 	static int yDistance;
 	static int holeNumber;
+	static int counter;
 
 	public static void clubSelection() {
 		System.out.println("Which club would you like to use?");
@@ -18,14 +19,14 @@ public class Holes {
 
 	public static void distanceError() {
 
-		plusOrMinus = 
+		plusOrMinus = (int) (Math.random() * 2);
 		dError = (int) (Math.random() * 11);
 		if (plusOrMinus == 0) {
 			distance = Club.club.get(club).getDistance() + dError;
 		} else {
 			distance = Club.club.get(club).getDistance() - dError;
 		}
-
+		yDistance+=distance;
 		System.out.println("You hit the ball " + distance + " yards.");
 
 	}
@@ -46,6 +47,7 @@ public class Holes {
 		{
 			xDistance=Course.course.get(holeNumber-1).getWidth() / 2;
 		}
+	
 		else if(acc>middle)
 		{
 			xDistance=(Course.course.get(holeNumber-1).getWidth() / 2) + (acc-middle);
@@ -55,12 +57,33 @@ public class Holes {
 			xDistance=(Course.course.get(holeNumber-1).getWidth() / 2) - (Math.abs(acc-middle));
 		}
 		}
-		System.out.println(xDistance);
+		
 
 	}
 
-	public static void checkBallStatus() {
-
+	public static void checkStatus()
+	{
+		boolean onGreen=false;
+		if(((yDistance>=(Course.course.get(holeNumber-1).getLength() - 15)) && (yDistance<=(Course.course.get(holeNumber-1).getLength() + 15))) &&
+		   (((xDistance>=(Course.course.get(holeNumber-1).getWidth()/2) - 15)) && (xDistance<=(Course.course.get(holeNumber-1).getWidth()/2) +15)))
+			{
+				onGreen();
+			}
+		else if(yDistance>(Course.course.get(holeNumber-1).getLength() + 15) || xDistance<=5 || xDistance>=(Course.course.get(holeNumber-1).getWidth() - 5))
+			{
+				System.out.println("You are out of bounds. Two stroke penalty. Try again.");
+				counter+=2;
+			
+			}
+		else
+			{
+				
+			}
+	}
+	
+	public static void onGreen()
+	{
+		System.out.println("You are on the green!");
 	}
 
 	public static void introduction() {
@@ -74,8 +97,9 @@ public class Holes {
 
 	public static void holeOne() {
 		holeNumber=1;
+		yDistance=0;
 		boolean inHole = false;
-		int counter = 0;
+		counter=0;
 		Scorecard.printCard();
 		System.out.println("Welcome to the First Hole.");
 		while (inHole == false) {
