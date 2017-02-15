@@ -10,6 +10,9 @@ public class Holes {
 	static int yDistance;
 	static int holeNumber;
 	static int counter;
+	static boolean inHole;
+	static int acc;
+	static int middle;
 
 	public static void clubSelection() {
 		System.out.println("Which club would you like to use?");
@@ -32,12 +35,10 @@ public class Holes {
 	}
 
 	public static void accuarcyError() {
-		int variance;
-		int acc;
-		int middle;
 		if(Club.club.get(club).isFavorite()==true)
 		{
 			xDistance=Course.course.get(holeNumber-1).getWidth() / 2;
+			
 		}
 		else
 		{
@@ -46,15 +47,18 @@ public class Holes {
 		if(acc==middle)
 		{
 			xDistance=Course.course.get(holeNumber-1).getWidth() / 2;
+			
 		}
 	
 		else if(acc>middle)
 		{
 			xDistance=(Course.course.get(holeNumber-1).getWidth() / 2) + (acc-middle);
+			
 		}
 		else
 		{
 			xDistance=(Course.course.get(holeNumber-1).getWidth() / 2) - (Math.abs(acc-middle));
+			
 		}
 		}
 		
@@ -72,17 +76,35 @@ public class Holes {
 		else if(yDistance>(Course.course.get(holeNumber-1).getLength() + 15) || xDistance<=5 || xDistance>=(Course.course.get(holeNumber-1).getWidth() - 5))
 			{
 				System.out.println("You are out of bounds. Two stroke penalty. Try again.");
+				yDistance-=distance;
+				xDistance=(Course.course.get(holeNumber-1).getWidth()/2);
 				counter+=2;
 			
 			}
 		else
 			{
+				if(acc==middle)
+					{
+						System.out.println("You are in the middle of the fairway.");
+						
+					}
 				
+					else if(acc>middle)
+					{
+						System.out.println("You are " + (xDistance - middle) + " yards right of the middle of the fairway.");
+						
+					}
+					else
+					{
+						System.out.println("You are " + (middle - xDistance) + " yards left of the middle of the fairway.");
+						
+					}
 			}
 	}
 	
 	public static void onGreen()
 	{
+		inHole=true;
 		System.out.println("You are on the green!");
 	}
 
@@ -98,7 +120,7 @@ public class Holes {
 	public static void holeOne() {
 		holeNumber=1;
 		yDistance=0;
-		boolean inHole = false;
+		inHole = false;
 		counter=0;
 		Scorecard.printCard();
 		System.out.println("Welcome to the First Hole.");
@@ -107,6 +129,7 @@ public class Holes {
 			clubSelection();
 			distanceError();
 			accuarcyError();
+			checkStatus();
 		}
 	}
 
