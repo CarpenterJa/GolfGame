@@ -83,6 +83,7 @@ public class Holes {
 			}
 		else
 			{
+				System.out.println("You are " + (Course.course.get(holeNumber-1).getLength() - yDistance) + " yards from the hole.");
 				if(acc==middle)
 					{
 						System.out.println("You are in the middle of the fairway.");
@@ -106,6 +107,26 @@ public class Holes {
 	{
 		inHole=true;
 		System.out.println("You are on the green!");
+		if(((yDistance>=(Course.course.get(holeNumber-1).getLength() - 5)) && (yDistance<=(Course.course.get(holeNumber-1).getLength() + 5))) &&
+				   (((xDistance>=(Course.course.get(holeNumber-1).getWidth()/2) - 5)) && (xDistance<=(Course.course.get(holeNumber-1).getWidth()/2) +5)))
+			{
+				counter++;
+				System.out.println("You one putted the hole.");
+			}
+		else if(((yDistance>=(Course.course.get(holeNumber-1).getLength() - 10)) && (yDistance<=(Course.course.get(holeNumber-1).getLength() + 10))) &&
+				   (((xDistance>=(Course.course.get(holeNumber-1).getWidth()/2) - 10)) && (xDistance<=(Course.course.get(holeNumber-1).getWidth()/2) +10)))
+			{
+				counter=counter+2;
+				System.out.println("You two putted the hole.");
+			}
+		else
+			{
+				counter=counter+3;
+				System.out.println("You three putted the hole.");
+			}
+		
+		Course.course.get(holeNumber-1).setScore(counter);
+		Scorecard.printCard();
 	}
 
 	public static void introduction() {
