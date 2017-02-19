@@ -67,7 +67,8 @@ public class Holes {
 
 	public static void checkStatus()
 	{
-		boolean onGreen=false;
+		
+		
 		if(((yDistance>=(Course.course.get(holeNumber-1).getLength() - 15)) && (yDistance<=(Course.course.get(holeNumber-1).getLength() + 15))) &&
 		   (((xDistance>=(Course.course.get(holeNumber-1).getWidth()/2) - 15)) && (xDistance<=(Course.course.get(holeNumber-1).getWidth()/2) +15)))
 			{
@@ -107,7 +108,11 @@ public class Holes {
 	{
 		inHole=true;
 		System.out.println("You are on the green!");
-		if(((yDistance>=(Course.course.get(holeNumber-1).getLength() - 5)) && (yDistance<=(Course.course.get(holeNumber-1).getLength() + 5))) &&
+		if(acc==middle && yDistance==Course.course.get(holeNumber-1).getLength())
+		{
+			System.out.println("You hit it right in the hole!!!");
+		}
+		else if(((yDistance>=(Course.course.get(holeNumber-1).getLength() - 5)) && (yDistance<=(Course.course.get(holeNumber-1).getLength() + 5))) &&
 				   (((xDistance>=(Course.course.get(holeNumber-1).getWidth()/2) - 5)) && (xDistance<=(Course.course.get(holeNumber-1).getWidth()/2) +5)))
 			{
 				counter++;
@@ -124,7 +129,34 @@ public class Holes {
 				counter=counter+3;
 				System.out.println("You three putted the hole.");
 			}
-		
+		if(counter==Course.course.get(holeNumber-1).getPar())
+		{
+			System.out.println("You got a par.");
+		}
+		else if(counter==(Course.course.get(holeNumber-1).getPar()+1))
+		{
+			System.out.println("You got a bogey.");
+		}
+		else if(counter==(Course.course.get(holeNumber-1).getPar()+2))
+		{
+			System.out.println("You got a double bogey.");
+		}
+		else if(counter==(Course.course.get(holeNumber-1).getPar()+3))
+		{
+			System.out.println("You got a triple bogey.");
+		}
+		else if(counter==(Course.course.get(holeNumber-1).getPar()-1))
+		{
+ 			System.out.println("You got a birdie.");
+		}
+		else if(counter==(Course.course.get(holeNumber-1).getPar()+1))
+		{
+			System.out.println("You got an eagle.");
+		}
+		else
+		{
+			System.out.println("You got a " + counter + " on the hole.");
+		}
 		Course.course.get(holeNumber-1).setScore(counter);
 		Scorecard.printCard();
 	}
@@ -153,5 +185,134 @@ public class Holes {
 			checkStatus();
 		}
 	}
+	public static void holeTwo()
+	{
+		holeNumber=2;
+		yDistance=0;
+		inHole = false;
+		counter=0;
+		Scorecard.printCard();
+		System.out.println("Welcome to the Second Hole.");
+		while (inHole == false) {
+			counter++;
+			clubSelection();
+			distanceError();
+			accuarcyError();
+			checkStatus();
+		}
+	}
+	public static void holeThree()
+	{
+		holeNumber=3;
+		yDistance=0;
+		inHole = false;
+		counter=0;
+		Scorecard.printCard();
+		System.out.println("Welcome to the Third Hole.");
+		while (inHole == false) {
+			counter++;
+			clubSelection();
+			distanceError();
+			accuarcyError();
+			checkStatus();
+		}
+	}
+	public static void holeFour()
+	{
+		holeNumber=4;
+		yDistance=0;
+		inHole = false;
+		counter=0;
+		Scorecard.printCard();
+		System.out.println("Welcome to the Fourth Hole.");
+		while (inHole == false) {
+			counter++;
+			clubSelection();
+			distanceError();
+			accuarcyError();
+			checkStatus();
+		}
+	}
+	public static void holeFive()
+	{
+		holeNumber=5;
+		yDistance=0;
+		inHole = false;
+		counter=0;
+		Scorecard.printCard();
+		System.out.println("Welcome to the Fifth Hole.");
+		while (inHole == false) {
+			counter++;
+			clubSelection();
+			distanceError();
+			accuarcyError();
+			checkStatus();
+		}
+	}
+	public static void holeSix()
+	{
+		holeNumber=6;
+		yDistance=0;
+		inHole = false;
+		counter=0;
+		Scorecard.printCard();
+		System.out.println("Welcome to the Sixth Hole.");
+		while (inHole == false) {
+			counter++;
+			clubSelection();
+			distanceError();
+			accuarcyError();
+			checkStatus();
+		}
+	}
+	public static void holeSeven()
+	{
+		holeNumber=7;
+		yDistance=0;
+		inHole = false;
+		counter=0;
+		Scorecard.printCard();
+		System.out.println("Welcome to the Seventh Hole.");
+		while (inHole == false) {
+			counter++;
+			clubSelection();
+			distanceError();
+			accuarcyError();
+			checkStatus();
+		}
+	}
+	public static void holeEight()
+	{
+		holeNumber=8;
+		yDistance=0;
+		inHole = false;
+		counter=0;
+		Scorecard.printCard();
+		System.out.println("Welcome to the Eigth Hole.");
+		while (inHole == false) {
+			counter++;
+			clubSelection();
+			distanceError();
+			accuarcyError();
+			checkStatus();
+		}
+	}
+	public static void holeNine()
+	{
+		holeNumber=9;
+		yDistance=0;
+		inHole = false;
+		counter=0;
+		Scorecard.printCard();
+		System.out.println("Welcome to the Ninth Hole.");
+		while (inHole == false) {
+			counter++;
+			clubSelection();
+			distanceError();
+			accuarcyError();
+			checkStatus();
+		}
+	}
+	
 
 }
