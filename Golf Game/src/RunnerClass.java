@@ -10,6 +10,14 @@ public class RunnerClass
 				LoadGame.loadGame();
 				Holes.introduction();
 				Holes.holeOne();
+				Holes.holeTwo();
+				Holes.holeThree();
+				Holes.holeFour();
+				Holes.holeFive();
+				Holes.holeSix();
+				Holes.holeSeven();
+				Holes.holeEight();
+				Holes.holeNine();
 
 			}
 
